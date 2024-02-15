@@ -10,6 +10,7 @@ public class MovieCollection {
         ArrayList<String> cast = new ArrayList<String>();
         try {
             int add = 0;
+
             File myFile = new File("src//movies_data.csv");
             Scanner fileScanner = new Scanner(myFile);
             fileScanner.nextLine();
