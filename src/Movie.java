@@ -8,7 +8,13 @@ public class Movie {
     private int runtime = 0;
 
     private double userRating = 0;
-    public Movie(){
+    public Movie(String title, String cast, String director, String overview, int runtime, double userRating){
+        this.title = title;
+        this.cast = cast;
+        this.director = director;
+        this.overview = overview;
+        this.runtime = runtime;
+        this.userRating = userRating;
 
     }
 }
