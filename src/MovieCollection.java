@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class MovieCollection {
     public void imports(){
         ArrayList<Movie> movieList = new ArrayList<Movie>();
-        ArrayList<Integer> ratings = new ArrayList<Integer>();
-        ArrayList<String> cast = new ArrayList<String>();
+        String hi = "";
         try {
             int add = 0;
 
@@ -15,27 +14,41 @@ public class MovieCollection {
             Scanner fileScanner = new Scanner(myFile);
             fileScanner.nextLine();
             while (fileScanner.hasNext()) {
+                ArrayList<String> list = new ArrayList<String>();
                 String data = fileScanner.nextLine();
                 int i = 0;
-                int next = 0;
-                String sub = "";
-                while(i >= 0){
+                String title = "";
+                String cast = "";
+                String director = "";
+                String overview = "";
+                int runtime = 0;
+                double rating = 0;
+                while(i >= 0) {
                     i = data.indexOf(",");
-                    if(i > 0){
-                        String s = data.substring(0, i);
-                        add += Integer.parseInt(s);
+                    if(i >= 0) {
+                        hi = data.substring(0, i);
+                        list.add(hi);
                         data = data.substring(i + 1);
                     }
                     else {
-
+                        list.add(data);
                     }
                 }
-                ratings.add(add);
-                add = 0;
+                title = list.get(0);
+                cast = list.get(1);
+                director = list.get(2);
+                overview = list.get(3);
+                runtime = Integer.parseInt(list.get(4));
+                rating = Double.parseDouble(list.get(5));
+                Movie movie = new Movie(title, cast, director, overview, runtime, rating);
+                movieList.add(movie);
             }
         } catch (IOException exception) {
             System.out.println(exception.getMessage());
         }
+    }
+
+    public void search(){
 
     }
 }
