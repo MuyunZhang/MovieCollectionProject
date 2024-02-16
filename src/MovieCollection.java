@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class MovieCollection {
 
     private Scanner scanner;
+    ArrayList<Movie> movieList = new ArrayList<Movie>();
     public void imports(){
         ArrayList<Movie> movieList = new ArrayList<Movie>();
         String hi = "";
@@ -51,7 +52,16 @@ public class MovieCollection {
     }
 
     public void searchTitles(){
-
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        String search = "";
+        System.out.println("Enter a title search term");
+        search = scanner.nextLine();
+        search = search.toLowerCase();
+        for(int i = 0; i < movieList.size(); i ++){
+            if(movieList.get(i).getTitle().toLowerCase().contains(search)){
+                movies.add(movies.get(i));
+            }
+        }
     }
 
     public void searchCast(){
@@ -59,9 +69,9 @@ public class MovieCollection {
     }
 
     public void menu(){
+        imports();
         System.out.println("Welcome to the movie collection!");
         String menuOption = "";
-
         while (!menuOption.equals("q")) {
             System.out.println("------------ Main Menu ----------");
             System.out.println("- search (t)itles");
