@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class MovieCollection {
 
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
     ArrayList<Movie> movieList = new ArrayList<Movie>();
     public void imports(){
-        ArrayList<Movie> movieList = new ArrayList<Movie>();
         String hi = "";
         try {
             int add = 0;
@@ -59,9 +58,30 @@ public class MovieCollection {
         search = search.toLowerCase();
         for(int i = 0; i < movieList.size(); i ++){
             if(movieList.get(i).getTitle().toLowerCase().contains(search)){
-                movies.add(movies.get(i));
+                movies.add(movieList.get(i));
             }
         }
+        int count = 1;
+        if(movies.isEmpty()){
+            System.out.println("No movies titles match that search term");
+        }
+        else{
+            for(Movie movie: movies){
+                System.out.println(count + ". " + movie.getTitle());
+                count ++;
+            }
+            System.out.println("Which movie would you like to learn more about?");
+            System.out.println("Enter number: ");
+            int idx = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Title: " + movies.get(idx - 1).getTitle());
+            System.out.println("Runtime: " + movies.get(idx - 1).getRuntime() + " minutes");
+            System.out.println("Directed by: " + movies.get(idx - 1).getDirector());
+            System.out.println("Cast: " + movies.get(idx - 1).getCast());
+            System.out.println("Overview: " + movies.get(idx - 1).getOverview());
+            System.out.println("UserRating: " + movies.get(idx - 1).getUserRating());
+        }
+        System.out.println("** Press Enter to Return to Main Menu **");
     }
 
     public void searchCast(){
