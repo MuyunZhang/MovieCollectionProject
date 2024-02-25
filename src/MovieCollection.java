@@ -81,35 +81,45 @@ public class MovieCollection {
             System.out.println("Overview: " + movies.get(idx - 1).getOverview());
             System.out.println("UserRating: " + movies.get(idx - 1).getUserRating());
         }
-        System.out.println("** Press Enter to Return to Main Menu **");
     }
 
     public void searchCast(){
 
     }
 
-    public void menu(){
+    public void menu() {
         imports();
-        System.out.println("Welcome to the movie collection!");
         String menuOption = "";
+        boolean returnToMainMenu = true;
+
         while (!menuOption.equals("q")) {
-            System.out.println("------------ Main Menu ----------");
-            System.out.println("- search (t)itles");
-            System.out.println("- search (c)ast");
-            System.out.println("- (q)uit");
-            System.out.print("Enter choice: ");
-            menuOption = scanner.nextLine();
+            if (returnToMainMenu) {
+                System.out.println("Welcome to the movie collection!");
+                System.out.println("------------ Main Menu ----------");
+                System.out.println("- search (t)itles");
+                System.out.println("- search (c)ast");
+                System.out.println("- (q)uit");
+                System.out.print("Enter choice: ");
+                menuOption = scanner.nextLine();
+            }
 
             if (menuOption.equals("t")) {
                 searchTitles();
+                returnToMainMenu = false;
             } else if (menuOption.equals("c")) {
                 searchCast();
+                returnToMainMenu = false;
             } else if (menuOption.equals("q")) {
                 System.out.println("Goodbye!");
             } else {
                 System.out.println("Invalid choice!");
             }
-        }
 
+            if (!returnToMainMenu) {
+                System.out.println("** Press Enter to Return to Main Menu **");
+                scanner.nextLine(); // Wait for the user to press Enter
+                returnToMainMenu = true;
+            }
+        }
     }
 }
