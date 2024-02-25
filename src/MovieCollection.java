@@ -79,7 +79,7 @@ public class MovieCollection {
             System.out.println("Runtime: " + movies.get(idx - 1).getRuntime() + " minutes");
             System.out.println("Directed by: " + movies.get(idx - 1).getDirector());
             System.out.println("Cast: " + movies.get(idx - 1).getCast());
-            System.out.print("Overview: " + movies.get(idx - 1).getOverview());
+            System.out.println("Overview: " + movies.get(idx - 1).getOverview());
             System.out.println("UserRating: " + movies.get(idx - 1).getUserRating());
         }
     }
@@ -149,7 +149,7 @@ public class MovieCollection {
                 System.out.println("Runtime: " + movies.get(idx2 - 1).getRuntime() + " minutes");
                 System.out.println("Directed by: " + movies.get(idx2 - 1).getDirector());
                 System.out.println("Cast: " + movies.get(idx2 - 1).getCast());
-                System.out.print("Overview: " + movies.get(idx2 - 1).getOverview());
+                System.out.println("Overview: " + movies.get(idx2 - 1).getOverview());
                 System.out.println("UserRating: " + movies.get(idx2 - 1).getUserRating());
             }
         }
